@@ -1,0 +1,25 @@
+{
+  "name": "nodejs-tutorials",
+  "description": "Future Studio tutorials focussed on Node.js",
+  "version": "1.0.0",
+  "author": "Future Studio <info@futurestud.io>",
+  "bugs": {
+    "url": "https://github.com/fs-opensource/nodejs-tutorials/issues"
+  },
+  "contributors": [
+    {
+      "name": "Marcus Poehls",
+      "email": "marcus@futurestud.io"
+    }
+  ],
+  "homepage": "https://github.com/fs-opensource/nodejs-tutorials#readme",
+  "license": "MIT",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fs-opensource/nodejs-tutorials.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
