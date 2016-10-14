@@ -1,6 +1,7 @@
 'use strict'
 
 const fs = require('fs')
+const path = require('path')
 
 function readPackage (callback) {
   // no default values in JS yet
@@ -8,7 +9,7 @@ function readPackage (callback) {
   callback = callback || function () {}
 
   return new Promise(function (resolve, reject) {
-    fs.readFile('./../package.json', function (err, data) {
+    fs.readFile(path.resolve(__dirname, '..', 'package.json'), function (err, data) {
       if (err) {
         // reject as promise
         reject(err)
