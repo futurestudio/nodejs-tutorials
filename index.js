@@ -7,8 +7,8 @@ example().then(function (data) {
   console.log(data.toString())
 })
 
-example(function(err, data) {
-  console.log ('callback available')
+example(function (err, data) {
+  console.log('callback available')
   if (err) {
     throw err
   }
