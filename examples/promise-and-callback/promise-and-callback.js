@@ -2,15 +2,15 @@
 
 const fs = require('fs')
 const path = require('path')
-const packagePath = path.resolve(__dirname, '..', 'package.json')
+const packagePath = path.resolve(__dirname, '..', '..', 'package.json')
 
-function packageInfo (callback) {
+function packageInfo(callback) {
   // no default values in JS yet
   // make sure callback is initialized
-  callback = callback || function () {}
+  callback = callback || function() {}
 
-  return new Promise(function (resolve, reject) {
-    fs.readFile(packagePath, function (err, data) {
+  return new Promise(function(resolve, reject) {
+    fs.readFile(packagePath, function(err, data) {
       if (err) {
         // reject as promise
         reject(err)
