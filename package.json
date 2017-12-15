@@ -21,5 +21,13 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "axios": "~0.17.1",
+    "listr": "~0.13.0"
+  },
+  "devDependencies": {
+    "eslint": "~4.13.1",
+    "prettier": "~1.9.2"
   }
 }
