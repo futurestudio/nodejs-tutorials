@@ -26,8 +26,9 @@ if (process.argv) {
   const tasks = [
     {
       title: 'Downloading images with axios',
-      task: (ctx, task) => {
-        const movies = [
+      task: async (ctx, task) => {
+        // an array of images with a name and the related download URL
+        const images = [
           {
             name: 'balloons',
             url: 'https://unsplash.com/photos/YhdEgF-qWlI/download?force=true'
@@ -50,22 +51,31 @@ if (process.argv) {
           }
         ]
 
-        const promises = movies.map(async movie => {
-          const imagePath = Path.resolve(__dirname, 'images', `${movie.name}.jpg`)
+        // map through the image list
+        const promises = images.map(async image => {
+          image.path = Path.resolve(__dirname, 'images', `${image.name}.jpg`)
+
+          // async image download within the .map function
           const response = await Axios({
             method: 'GET',
-            url: movie.url,
+            url: image.url,
             responseType: 'stream'
           })
 
-          response.data.pipe(Fs.createWriteStream(imagePath))
+          // pipe the result stream into a file on disc
+          response.data.pipe(Fs.createWriteStream(image.path))
 
+          // return a promise as the result of .map on this item
           return new Promise(resolve => {
-            response.data.on('end', resolve)
+            response.data.on('end', () => {
+              resolve(image)
+            })
           })
         })
 
-        return Promise.all(promises)
+        // run and wait until all promises resolve
+        const result = await Promise.all(promises)
+        // use the result
       }
     }
   ]
