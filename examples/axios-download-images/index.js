@@ -27,8 +27,8 @@ if (process.argv) {
     {
       title: 'Downloading images with axios',
       task: async (ctx, task) => {
-        const url = 'https://unsplash.com/photos/piG9Ye_oHrI/download?force=true'
-        const path = Path.resolve(__dirname, 'images', 'cloudy-cabin.jpg')
+        const url = 'https://unsplash.com/photos/AaEQmoufHLk/download?force=true'
+        const path = Path.resolve(__dirname, 'images', 'code.jpg')
 
         // async image download within the .map function
         const response = await Axios({
