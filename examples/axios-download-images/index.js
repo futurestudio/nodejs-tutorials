@@ -30,7 +30,7 @@ if (process.argv) {
         const url = 'https://unsplash.com/photos/AaEQmoufHLk/download?force=true'
         const path = Path.resolve(__dirname, 'images', 'code.jpg')
 
-        // async image download within the .map function
+        // axios image download with response type "stream"
         const response = await Axios({
           method: 'GET',
           url: url,
@@ -40,7 +40,7 @@ if (process.argv) {
         // pipe the result stream into a file on disc
         response.data.pipe(Fs.createWriteStream(path))
 
-        // return a promise as the result of .map on this item
+        // return a promise because of listr
         return new Promise(resolve => {
           response.data.on('end', () => {
             resolve()
