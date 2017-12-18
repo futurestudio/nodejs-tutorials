@@ -25,64 +25,38 @@ function kickoff(tasks) {
 if (process.argv) {
   const tasks = [
     {
-      title: 'Downloading images with axios',
+      title: 'Downloading repository information',
       task: async (ctx, task) => {
         // an array of images with a name and the related download URL
-        const images = [
+        const repos = [
           {
-            name: 'balloons',
-            url: 'https://unsplash.com/photos/YhdEgF-qWlI/download?force=true'
+            url: 'https://api.github.com/repos/fs-opensource/futureflix-starter-kit'
           },
           {
-            name: 'rocket-start',
-            url: 'https://unsplash.com/photos/TV2gg2kZD1o/download?force=true'
-          },
-          {
-            name: 'mountains',
-            url: 'https://unsplash.com/photos/VNseEaTt9w4/download?force=true'
-          },
-          {
-            name: 'winter-road',
-            url: 'https://unsplash.com/photos/jIdKrtJF8Uk/download?force=true'
-          },
-          {
-            name: 'spring-incoming',
-            url: 'https://unsplash.com/photos/ngu4VY2hI48/download?force=true'
+            url: 'https://api.github.com/repos/fs-opensource/android-tutorials-glide'
           }
         ]
 
         // map through the image list
-        const promises = images.map(async image => {
-          image.path = Path.resolve(__dirname, 'images', `${image.name}.jpg`)
-
+        const promises = repos.map(async repo => {
           // async image download within the .map function
           const response = await Axios({
             method: 'GET',
-            url: image.url,
-            responseType: 'stream'
+            url: repo.url,
+            headers: {
+              Accept: 'application/vnd.github.v3+json'
+            }
           })
 
-          // pipe the result stream into a file on disc
-          response.data.pipe(Fs.createWriteStream(image.path))
-
-          // return a promise as the result of .map on this item
-          return new Promise((resolve, reject) => {
-            response.data.on('end', () => {
-              // you could also save the changed item to DB
-              resolve(image)
-            })
-
-            response.data.on('error', err => {
-              // you could also save the changed item to DB
-              reject(err)
-            })
+          return Object.assign(repo, {
+            name: response.data.full_name,
+            description: response.data.description
           })
         })
 
         // run and wait until all promises resolve
-        const result = await Promise.all(promises)
-        // use the result
-      }
+        const results = await Promise.all(promises)
+        // use the results
     }
   ]
 
