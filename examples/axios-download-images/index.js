@@ -40,10 +40,14 @@ if (process.argv) {
         // pipe the result stream into a file on disc
         response.data.pipe(Fs.createWriteStream(path))
 
-        // return a promise because of listr
-        return new Promise(resolve => {
+        // return a promise and resolve when download finishes
+        return new Promise((resolve, reject) => {
           response.data.on('end', () => {
             resolve()
+          })
+
+          response.data.on('error', err => {
+            reject(err)
           })
         })
       }

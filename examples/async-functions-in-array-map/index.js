@@ -66,10 +66,15 @@ if (process.argv) {
           response.data.pipe(Fs.createWriteStream(image.path))
 
           // return a promise as the result of .map on this item
-          return new Promise(resolve => {
+          return new Promise((resolve, reject) => {
             response.data.on('end', () => {
               // you could also save the changed item to DB
               resolve(image)
+            })
+
+            response.data.on('error', err => {
+              // you could also save the changed item to DB
+              reject(err)
             })
           })
         })
