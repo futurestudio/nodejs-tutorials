@@ -5,12 +5,6 @@ const Path = require('path')
 const Listr = require('listr')
 const Axios = require('axios')
 
-/**
- * Start tasks to prepare or destroy data in MongoDB
- *
- * @param  {Listr} tasks  Listr instance with tasks
- * @return {void}
- */
 function kickoff(tasks) {
   tasks
     .run()
@@ -18,16 +12,12 @@ function kickoff(tasks) {
     .catch(process.exit)
 }
 
-/**
- * Entry point for the NPM "pumpitup" and "cleanup" scripts
- * Imports movie and TV show sample data to MongoDB
- */
 if (process.argv) {
   const tasks = [
     {
       title: 'Downloading repository information',
       task: async (ctx, task) => {
-        // an array of images with a name and the related download URL
+        // load repository details for this array of repo URLs
         const repos = [
           {
             url: 'https://api.github.com/repos/fs-opensource/futureflix-starter-kit'
@@ -37,9 +27,9 @@ if (process.argv) {
           }
         ]
 
-        // map through the image list
+        // map through the repo list
         const promises = repos.map(async repo => {
-          // async image download within the .map function
+          // request details from GitHub’s API with Axios
           const response = await Axios({
             method: 'GET',
             url: repo.url,
@@ -54,7 +44,7 @@ if (process.argv) {
           })
         })
 
-        // run and wait until all promises resolve
+        // wait until all promises resolve
         const results = await Promise.all(promises)
         // use the results
     }
