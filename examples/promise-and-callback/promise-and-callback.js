@@ -1,27 +1,25 @@
 'use strict'
 
-const fs = require('fs')
-const path = require('path')
-const packagePath = path.resolve(__dirname, '..', '..', 'package.json')
+const Fs = require('fs')
+const Path = require('path')
+const Util = require('util')
+const packagePath = Path.resolve(__dirname, '..', '..', 'package.json')
 
-function packageInfo(callback) {
-  // no default values in JS yet
-  // make sure callback is initialized
-  callback = callback || function() {}
-
-  return new Promise(function(resolve, reject) {
-    fs.readFile(packagePath, function(err, data) {
+exports.packageInfo = function(callback) {
+  return new Promise((resolve, reject) => {
+    Fs.readFile(packagePath, (err, data) => {
       if (err) {
-        // reject as promise
-        reject(err)
-        // return callback using "error-first-pattern"
-        return callback(err)
+        // if no callback available, reject the promise
+        // else, return callback using "error-first-pattern"
+        return callback ? callback(err) : reject(err)
       }
 
-      resolve(data)
-      return callback(null, data)
+      return callback ? callback(null, data) : resolve(data)
     })
   })
 }
 
-module.exports = packageInfo
+exports.packageInfoPromisified = function() {
+  const readFilePromise = Util.promisify(Fs.readFile)
+  return readFilePromise(packagePath)
+}
