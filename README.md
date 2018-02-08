@@ -7,7 +7,7 @@ Showcase for various [Node.js tutorials on Future Studio](https://futurestud.io/
 
 ------
 
-<p align="center"><sup>Development of this hapi plugin is supported by <a href="https://futurestud.io">Future Studio University 🚀</a></sup>
+<p align="center"><sup>The Node.js tutorials are supported by <a href="https://futurestud.io">Future Studio University 🚀</a></sup>
 <br><b>
 Join the <a href="https://futurestud.io/university">Future Studio University and Skyrocket in Node.js</a></b>
 </p>
