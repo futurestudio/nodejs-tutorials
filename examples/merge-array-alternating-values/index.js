@@ -1,31 +1,41 @@
 'use strict'
 
+const _ = require('lodash')
+
 const first = [1, 2, 3, 4]
 const second = ['A', 'B', 'C', 'D']
 
-const combined =
+const vanilla1 = Array.prototype.concat(
+  ...first.map((item, index) => {
+    return [item, second[index]]
+  })
+)
+
+
+console.log(vanilla1);
+
+
+const vanilla2 =
   first
     .map((item, index) => {
       return [item, second[index]]
-    }).reduce((result, pair) => {
+    })
+    .reduce((result, pair) => {
       return result.concat(pair)
     })
-
-console.log('Vanilla JS:')
-console.log(combined);
-// -> [ 1, 'A', 2, 'B', 3, 'C', 4, 'D' ]
+console.log(vanilla2)
 
 
-// Alternatively with lodash
-const _ = require('lodash')
+const lodash1 = _.flatten(_.zip(first, second))
 
-const lodashCombined =
+
+console.log(lodash1);
+
+
+const lodash2 =
   _
     .zip(first, second)
     .reduce((result, pair) => {
       return result.concat(pair)
     })
-
-console.log('with lodash:')
-console.log(lodashCombined);
-// -> [ 1, 'A', 2, 'B', 3, 'C', 4, 'D' ]
+console.log(lodash2);
