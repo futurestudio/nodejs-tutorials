@@ -25,6 +25,7 @@
   "dependencies": {
     "axios": "~0.18.0",
     "listr": "~0.14.3",
+    "lodash": "~4.17.11",
     "progress": "~2.0.1"
   },
   "devDependencies": {
