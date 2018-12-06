@@ -12,34 +12,24 @@ async function download() {
   const response = await Axios({
     url,
     method: 'GET',
-    responseType: 'stream',
-    onDownloadProgress: function (progressEvent) {
-      console.log(progressEvent);
-    }
+    responseType: 'stream'
   })
 
   response.data.pipe(Fs.createWriteStream(path))
 
   const progressBar = new ProgressBar('-> downloading [:bar] :percent :etas', {
+    width: 40,
     complete: '=',
     incomplete: ' ',
-    width: 40,
-    total: 0
+    renderThrottle: 1,
+    total: parseInt(response.headers['content-length'])
   })
 
-  // return a promise and resolve when download finishes
   return new Promise((resolve, reject) => {
-    response.data.on('data', function (chunk) {
-      const total = this.headers['content-length']
-      progressBar.total = parseInt(total)
-      progressBar.tick(chunk.length)
-    })
-
+    response.data.on('data', (chunk) => progressBar.tick(chunk.length))
     response.data.on('end', resolve)
     response.data.on('error', reject)
   })
-  .then(process.exit)
-  .catch(process.exit)
 }
 
 download()
