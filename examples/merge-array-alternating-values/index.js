@@ -10,7 +10,6 @@ const vanilla1 = Array.prototype.concat(
     return [item, second[index]]
   })
 )
-
 console.log(vanilla1)
 
 const vanilla2 =
@@ -24,7 +23,6 @@ const vanilla2 =
 console.log(vanilla2)
 
 const lodash1 = _.flatten(_.zip(first, second))
-
 console.log(lodash1)
 
 const lodash2 =
