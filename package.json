@@ -12,16 +12,6 @@
       "email": "marcus@futurestud.io"
     }
   ],
-  "homepage": "https://github.com/fs-opensource/nodejs-tutorials#readme",
-  "license": "MIT",
-  "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/fs-opensource/nodejs-tutorials.git"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "dependencies": {
     "axios": "~0.18.0",
     "listr": "~0.14.3",
@@ -35,5 +25,16 @@
     "eslint-plugin-node": "~8.0.0",
     "eslint-plugin-promise": "~4.0.1",
     "eslint-plugin-standard": "~4.0.0"
+  },
+  "homepage": "https://github.com/fs-opensource/nodejs-tutorials#readme",
+  "license": "MIT",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fs-opensource/nodejs-tutorials.git"
+  },
+  "scripts": {
+    "lint": "eslint --fix",
+    "test": "echo \"Error: no test specified\" && exit 1"
   }
 }
