@@ -11,9 +11,7 @@ const vanilla1 = Array.prototype.concat(
   })
 )
 
-
-console.log(vanilla1);
-
+console.log(vanilla1)
 
 const vanilla2 =
   first
@@ -25,12 +23,9 @@ const vanilla2 =
     })
 console.log(vanilla2)
 
-
 const lodash1 = _.flatten(_.zip(first, second))
 
-
-console.log(lodash1);
-
+console.log(lodash1)
 
 const lodash2 =
   _
@@ -38,4 +33,4 @@ const lodash2 =
     .reduce((result, pair) => {
       return result.concat(pair)
     })
-console.log(lodash2);
+console.log(lodash2)

@@ -5,7 +5,7 @@ const Path = require('path')
 const Util = require('util')
 const packagePath = Path.resolve(__dirname, '..', '..', 'package.json')
 
-exports.packageInfo = function(callback) {
+exports.packageInfo = function (callback) {
   return new Promise((resolve, reject) => {
     Fs.readFile(packagePath, (err, data) => {
       if (err) {
@@ -19,7 +19,7 @@ exports.packageInfo = function(callback) {
   })
 }
 
-exports.packageInfoPromisified = function() {
+exports.packageInfoPromisified = function () {
   const readFilePromise = Util.promisify(Fs.readFile)
   return readFilePromise(packagePath)
 }

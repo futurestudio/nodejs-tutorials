@@ -5,7 +5,7 @@ const Path = require('path')
 const Axios = require('axios')
 const ProgressBar = require('progress')
 
-async function download() {
+async function download () {
   const url = 'https://unsplash.com/photos/P6uF0I_okfk/download?force=true'
   const path = Path.resolve(__dirname, 'images', 'hills.jpg')
 

@@ -11,7 +11,7 @@ const Axios = require('axios')
  * @param  {Listr} tasks  Listr instance with tasks
  * @return {void}
  */
-function kickoff(tasks) {
+function kickoff (tasks) {
   tasks
     .run()
     .then(process.exit)

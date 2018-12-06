@@ -1,11 +1,9 @@
 'use strict'
 
-const Fs = require('fs')
-const Path = require('path')
 const Listr = require('listr')
 const Axios = require('axios')
 
-function kickoff(tasks) {
+function kickoff (tasks) {
   tasks
     .run()
     .then(process.exit)
@@ -16,8 +14,7 @@ if (process.argv) {
   const tasks = [
     {
       title: 'Downloading repository information',
-      task: async (ctx, task) => {
-        // load repository details for this array of repo URLs
+      task: async () => {
         const repos = [
           {
             url: 'https://api.github.com/repos/fs-opensource/futureflix-starter-kit'
@@ -27,15 +24,11 @@ if (process.argv) {
           }
         ]
 
-        // map through the repo list
         const promises = repos.map(async repo => {
-          // request details from GitHub’s API with Axios
           const response = await Axios({
             method: 'GET',
             url: repo.url,
-            headers: {
-              Accept: 'application/vnd.github.v3+json'
-            }
+            headers: { Accept: 'application/vnd.github.v3+json' }
           })
 
           return Object.assign(repo, {
@@ -44,9 +37,8 @@ if (process.argv) {
           })
         })
 
-        // wait until all promises resolve
-        const results = await Promise.all(promises)
-        // use the results
+        await Promise.all(promises)
+      }
     }
   ]
 
