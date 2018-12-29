@@ -1,6 +1,6 @@
 'use strict'
 
-class NotEnoughCoffeeError extends Error {
+class NotEnoughCoffee extends Error {
   constructor (message) {
     super(message)
 
@@ -8,4 +8,4 @@ class NotEnoughCoffeeError extends Error {
   }
 }
 
-throw new NotEnoughCoffeeError('You had to few coffee today. Get another one :)')
+throw new NotEnoughCoffee('Well, you may need another coffee :)')
