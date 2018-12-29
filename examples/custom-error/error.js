@@ -8,4 +8,4 @@ class NotEnoughCoffee extends Error {
   }
 }
 
-throw new NotEnoughCoffee('Well, you may need another coffee :)')
+module.exports = NotEnoughCoffee
