@@ -19,12 +19,13 @@ function writeToFile (path, data) {
 }
 
 function readFromFile (path) {
-  Fs.readFile(path, 'utf8', (err, data) => {
+  Fs.readFile(path, 'utf8', (err, json) => {
     if (err) {
       console.error(err)
       throw err
     }
 
+    const data = JSON.parse(json)
     console.log(data)
   })
 }

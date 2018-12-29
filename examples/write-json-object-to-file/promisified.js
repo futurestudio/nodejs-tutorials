@@ -18,7 +18,8 @@ async function writeToFile (path, data) {
 
 async function dataFromFile (path) {
   try {
-    const content = await Fs.readFile(path, 'utf8')
+    const json = await Fs.readFile(path, 'utf8')
+    const content = JSON.parse(json)
     console.log(content)
   } catch (error) {
     console.log(error)
