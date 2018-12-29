@@ -3,12 +3,12 @@
 const Fs = require('fs')
 const Path = require('path')
 
-const file = Path.resolve(__dirname, 'content.txt')
+const filePath = Path.resolve(__dirname, 'content.txt')
 
-function dataToFile (data) {
+function writeToFile (path, data) {
   const json = JSON.stringify(data, null, 2)
 
-  Fs.writeFile(file, json, (err) => {
+  Fs.writeFile(path, json, (err) => {
     if (err) {
       console.error(err)
       throw err
@@ -18,15 +18,16 @@ function dataToFile (data) {
   })
 }
 
-function dataFromFile () {
-  Fs.readFile(file, 'utf8', (err, data) => {
+function readFromFile (path) {
+  Fs.readFile(path, 'utf8', (err, data) => {
     if (err) {
-      return console.error(err)
+      console.error(err)
+      throw err
     }
 
     console.log(data)
   })
 }
 
-dataToFile({ name: 'Marcus' })
-dataFromFile()
+writeToFile(filePath, { name: 'Marcus' })
+readFromFile(filePath)
