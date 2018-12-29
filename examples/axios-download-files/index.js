@@ -26,29 +26,22 @@ if (process.argv) {
   const tasks = [
     {
       title: 'Downloading images with axios',
-      task: async (ctx, task) => {
+      task: async () => {
         const url = 'https://unsplash.com/photos/AaEQmoufHLk/download?force=true'
         const path = Path.resolve(__dirname, 'images', 'code.jpg')
+        const writer = Fs.createWriteStream(path)
 
-        // axios image download with response type "stream"
         const response = await Axios({
+          url,
           method: 'GET',
-          url: url,
           responseType: 'stream'
         })
 
-        // pipe the result stream into a file on disc
-        response.data.pipe(Fs.createWriteStream(path))
+        response.data.pipe(writer)
 
-        // return a promise and resolve when download finishes
         return new Promise((resolve, reject) => {
-          response.data.on('end', () => {
-            resolve()
-          })
-
-          response.data.on('error', err => {
-            reject(err)
-          })
+          writer.on('finish', resolve)
+          writer.on('error', reject)
         })
       }
     }
