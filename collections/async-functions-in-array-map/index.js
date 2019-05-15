@@ -17,10 +17,10 @@ if (process.argv) {
       task: async () => {
         const repos = [
           {
-            url: 'https://api.github.com/repos/fs-opensource/futureflix-starter-kit'
+            url: 'https://api.github.com/repos/futurestudio/futureflix-starter-kit'
           },
           {
-            url: 'https://api.github.com/repos/fs-opensource/android-tutorials-glide'
+            url: 'https://api.github.com/repos/futurestudio/android-tutorials-glide'
           }
         ]
 
