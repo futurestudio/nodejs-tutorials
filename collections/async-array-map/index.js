@@ -3,11 +3,18 @@
 const Listr = require('listr')
 const Axios = require('axios')
 
-function kickoff (tasks) {
-  tasks
-    .run()
-    .then(process.exit)
-    .catch(process.exit)
+let result = null
+
+async function kickoff (tasks) {
+  try {
+    await tasks.run()
+
+    console.log(result)
+  } catch (error) {
+    console.error(error)
+  }
+
+  process.exit(0)
 }
 
 if (process.argv) {
@@ -37,7 +44,7 @@ if (process.argv) {
           })
         })
 
-        await Promise.all(promises)
+        result = await Promise.all(promises)
       }
     }
   ]
