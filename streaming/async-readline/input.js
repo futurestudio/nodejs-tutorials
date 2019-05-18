@@ -1,9 +1,9 @@
 'use strict'
 
-const Transformer = require('./async-transformer')
+const Stringifier = require('./async-stringify-transform')
 
 console.log('Just type what you want!')
 
 process.stdin
-  .pipe(new Transformer())
+  .pipe(new Stringifier())
   .pipe(process.stdout)
