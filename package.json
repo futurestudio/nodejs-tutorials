@@ -22,7 +22,9 @@
     "listr": "~0.14.3",
     "lodash": "~4.17.11",
     "p-iteration": "~1.1.8",
-    "progress": "~2.0.3"
+    "progress": "~2.0.3",
+    "youch": "~2.0.10",
+    "youch-terminal": "~1.0.0"
   },
   "devDependencies": {
     "eslint": "~5.16.0",
