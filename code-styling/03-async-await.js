@@ -13,6 +13,9 @@ async function drinkCoffee () {
 }
 
 async function breakfast () {
+  // everything is top-level when using async/await
+  // no nested callbacks to retrieve the results
+
   await grindCoffee()
   await brewCoffee()
   await drinkCoffee()
