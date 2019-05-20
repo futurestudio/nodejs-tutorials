@@ -12,9 +12,9 @@ class Stringifier extends Transform {
 
   async _process (message) {
     console.log(`\nStart processing #${message}`)
-    await Hoek.wait(3000)
+    await Hoek.wait(2000)
 
-    return JSON.stringify({ message })
+    return JSON.stringify({ message }).concat('\n')
   }
 }
 
