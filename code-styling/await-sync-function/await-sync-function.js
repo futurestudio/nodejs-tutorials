@@ -2,18 +2,12 @@
 
 class PostController {
   async find () {
-    const result = await this.filter()
+    const result = await this._filter()
     console.log(result)
   }
 
-  filter () {
-    return [
-      { id: 1 },
-      { id: 2 },
-      { id: 3 },
-      { id: 4 },
-      { id: 5 }
-    ].filter(({ id }) => id % 2 === 0)
+  _filter () {
+    return [ 1, 2, 3, 4, 5 ].filter(id => id % 2 === 0)
   }
 }
 
