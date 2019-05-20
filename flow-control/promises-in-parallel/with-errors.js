@@ -5,11 +5,12 @@ const Hoek = require('hoek')
 run()
 
 async function run () {
-  const waitingTimes = [10, 600, 200, 775, 125, 990].map(timeout => wait(timeout))
+  const timeouts = [10, 600, 200, 775, 125, 990]
+  const promises = timeouts.map(timeout => wait(timeout))
 
   try {
     const result = await Promise.all(
-      waitingTimes.concat([ throwUp() ])
+      promises.concat([ throwUp() ])
     )
 
     /**
@@ -17,6 +18,7 @@ async function run () {
      * within Promise.all rejects. If at least a single promise
      * rejects, you won't see the result logged to the console.
      */
+    console.log('Here is the result:')
     console.log(result)
   } catch (error) {
     console.log('WAT WAT WAT ?! Here’s an error. Holy moly!!')
@@ -25,7 +27,7 @@ async function run () {
   }
 
   console.log()
-  console.log('YES! All done. Here is the result:')
+  console.log('YES! All done.')
 }
 
 async function throwUp () {

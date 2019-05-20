@@ -18,18 +18,18 @@ async function run () {
   console.log(reduceResult)
 }
 
-async function forLoopInSequence (waitingTimes) {
+async function forLoopInSequence (timeouts) {
   let result = []
 
-  for (const timeout of waitingTimes) {
+  for (const timeout of timeouts) {
     result.push(await wait(timeout))
   }
 
   return result
 }
 
-async function reduceInSequence (array) {
-  return array.reduce(async (carry, timeout) => {
+async function reduceInSequence (timeouts) {
+  return timeouts.reduce(async (carry, timeout) => {
     return [
       ...(await carry),
       await wait(timeout)
@@ -37,9 +37,9 @@ async function reduceInSequence (array) {
   }, Promise.resolve([]))
 }
 
-async function wait (time) {
-  await Hoek.wait(time)
-  console.log(`waited: ${time}`)
+async function wait (ms) {
+  await Hoek.wait(ms)
+  console.log(`waited: ${ms}`)
 
-  return time
+  return ms
 }
