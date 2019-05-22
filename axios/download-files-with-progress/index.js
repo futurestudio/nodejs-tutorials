@@ -8,7 +8,7 @@ const ProgressBar = require('progress')
 class DownloadWithProgressBar {
   constructor () {
     this.source = 'https://unsplash.com/photos/P6uF0I_okfk/download?force=true'
-    this.destination = Path.resolve(__dirname, 'images', 'hills.jpg')
+    this.destination = Path.resolve(`${__dirname}/images/hills.jpg`)
   }
 
   async start () {
