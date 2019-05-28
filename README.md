@@ -2,6 +2,18 @@
 This repository includes examples for the [Node.js tutorials published on Future Studio](https://futurestud.io/tutorials/tag/nodejs). Enjoy toying with all the invididual examples and feel free to apply the practical approaches in your apps.
 
 
+
+------
+
+<p align="center"><sup>The Node.js tutorials are supported by <a href="https://futurestud.io">Future Studio University 🚀</a></sup>
+<br><b>
+Join the <a href="https://futurestud.io/university">Future Studio University and Skyrocket in Node.js</a></b>
+</p>
+
+------
+
+
+
 #### Axios
 - [Axios — Download Files in Node.js](https://futurestud.io/tutorials/download-files-images-with-axios-in-node-js)
 
@@ -47,16 +59,6 @@ This repository includes examples for the [Node.js tutorials published on Future
 #### Misc
 - [Increase the Memory Limit for Your Node.js Process](https://futurestud.io/tutorials/node-js-increase-the-memory-limit-for-your-process)
 - [Get Number of Seconds Since Epoch in JavaScript](https://futurestud.io/tutorials/get-number-of-seconds-since-epoch-in-javascript)
-
-
-------
-
-<p align="center"><sup>The Node.js tutorials are supported by <a href="https://futurestud.io">Future Studio University 🚀</a></sup>
-<br><b>
-Join the <a href="https://futurestud.io/university">Future Studio University and Skyrocket in Node.js</a></b>
-</p>
-
-------
 
 
 ## YouTube Playlist
