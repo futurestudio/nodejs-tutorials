@@ -19,7 +19,7 @@ async function run () {
 }
 
 async function forLoopInParallel (timeouts) {
-  const promises = timeouts.map(timeout => wait(timeout))
+  const promises = timeouts.map(timeout => asyncProcessing(timeout))
   let result = []
 
   for (const timeoutPromise of promises) {
@@ -30,13 +30,13 @@ async function forLoopInParallel (timeouts) {
 }
 
 async function awaitAll (timeouts) {
-  const promises = timeouts.map(timeout => wait(timeout))
+  const promises = timeouts.map(timeout => asyncProcessing(timeout))
   const result = await Promise.all(promises)
 
   return result
 }
 
-async function wait (ms) {
+async function asyncProcessing (ms) {
   await Hoek.wait(ms)
   console.log(`waited: ${ms}ms`)
 

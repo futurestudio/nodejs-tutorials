@@ -21,12 +21,12 @@ async function reduceInSequence (timeouts) {
   return timeouts.reduce(async (carry, timeout) => {
     return [
       ...(await carry),
-      await wait(timeout)
+      await asyncProcessing(timeout)
     ]
   }, Promise.resolve([]))
 }
 
-async function wait (ms) {
+async function asyncProcessing (ms) {
   if (typeof ms === 'function') {
     return ms()
   }

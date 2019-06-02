@@ -22,7 +22,7 @@ async function forLoopInSequence (timeouts) {
   let result = []
 
   for (const timeout of timeouts) {
-    result.push(await wait(timeout))
+    result.push(await asyncProcessing(timeout))
   }
 
   return result
@@ -32,12 +32,12 @@ async function reduceInSequence (timeouts) {
   return timeouts.reduce(async (carry, timeout) => {
     return [
       ...(await carry),
-      await wait(timeout)
+      await asyncProcessing(timeout)
     ]
   }, Promise.resolve([]))
 }
 
-async function wait (ms) {
+async function asyncProcessing (ms) {
   await Hoek.wait(ms)
   console.log(`waited: ${ms}`)
 

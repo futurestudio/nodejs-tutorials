@@ -6,7 +6,7 @@ run()
 
 async function run () {
   const timeouts = [10, 600, 200, 775, 125, 990]
-  const promises = timeouts.map(timeout => wait(timeout))
+  const promises = timeouts.map(timeout => asyncProcessing(timeout))
 
   try {
     const result = await Promise.all(
@@ -34,7 +34,7 @@ async function throwUp () {
   throw new Error('throwing up')
 }
 
-async function wait (timeout) {
+async function asyncProcessing (timeout) {
   await Hoek.wait(timeout)
   console.log(`waited: ${timeout}ms`)
 }
