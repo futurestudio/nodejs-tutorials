@@ -2,8 +2,7 @@
 
 class PriorityQueue {
   /**
-   * Creates a new Queue instance and
-   * enqueues the given `items`.
+   * Creates a new PriorityQueue instance.
    *
    * @param  {Mixed} items
    */
@@ -12,7 +11,8 @@ class PriorityQueue {
   }
 
   /**
-   * Pushes new `items` into the queue.
+   * Pushes a new `item` with the related
+   * `priority` into the queue.
    *
    * @param  {Mixed} items
    */
