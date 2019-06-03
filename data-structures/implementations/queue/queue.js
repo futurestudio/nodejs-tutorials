@@ -12,7 +12,7 @@ class Queue {
   }
 
   /**
-   * Pushes new items into the queue.
+   * Pushes new `items` into the queue.
    *
    * @param  {Mixed} items
    */

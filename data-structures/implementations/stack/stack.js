@@ -13,7 +13,7 @@ class Stack {
   }
 
   /**
-   * Push new items onto the stack.
+   * Push new `items` onto the stack.
    *
    * @param  {Mixed} items
    */
