@@ -1,6 +1,13 @@
 'use strict'
 
 class Stack {
+  /**
+   * Creates a new Stack instance and
+   * pushes the given `items` onto
+   * the stack.
+   *
+   * @param  {Mixed} items
+   */
   constructor (...items) {
     this._stack = [...items.reverse()]
   }
@@ -47,7 +54,7 @@ class Stack {
   }
 
   /**
-   * Returns `true` if there are items on
+   * Returns `true` if there are no items on
    * the stack, `false` otherwise.
    *
    * @returns {Boolean}
