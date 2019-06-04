@@ -5,7 +5,7 @@ class PriorityQueue {
     this._queue = []
   }
 
-  enqueue () {}
+  enqueue (item, priority) {}
   dequeue () {}
   peek () {}
   size () {}

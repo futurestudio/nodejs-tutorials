@@ -1,11 +1,11 @@
 'use strict'
 
 class Stack {
-  constructor () {
+  constructor (...items) {
     this._stack = []
   }
 
-  push () {}
+  push (...items) {}
   pop () {}
   peek () {}
   size () {}

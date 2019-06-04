@@ -1,13 +1,13 @@
 'use strict'
 
 class Set {
-  constructor () {
+  constructor (...items) {
     this._set = {}
   }
 
-  add () {}
-  remove () {}
-  has () {}
+  add (...items) {}
+  remove (item) {}
+  has (item) {}
   toArray () {}
   size () {}
   isEmpty () {}

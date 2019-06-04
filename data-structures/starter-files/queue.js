@@ -1,11 +1,11 @@
 'use strict'
 
 class Queue {
-  constructor () {
+  constructor (...items) {
     this._queue = []
   }
 
-  enqueue () {}
+  enqueue (...items) {}
   dequeue () {}
   peek () {}
   size () {}
