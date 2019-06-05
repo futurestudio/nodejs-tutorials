@@ -20,7 +20,7 @@ async function run () {
 
 async function forLoopInParallel (timeouts) {
   const promises = timeouts.map(timeout => asyncProcessing(timeout))
-  let result = []
+  const result = []
 
   for (const timeoutPromise of promises) {
     result.push(await timeoutPromise)
