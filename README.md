@@ -13,6 +13,15 @@ Join the <a href="https://futurestud.io/university">Future Studio University and
 ------
 
 
+## YouTube Playlist
+Even though there aren’t that many tutorials, find the [Node.js playlist on YouTube](https://www.youtube.com/watch?v=s6TNwLnhppk&list=PLpUMhvC6l7AMwyuEqLPvfEtKQbdD4BJ5o).
+
+
+---
+
+
+## Tutorials
+
 
 #### Axios
 - [Axios — Download Files in Node.js](https://futurestud.io/tutorials/download-files-images-with-axios-in-node-js)
@@ -22,7 +31,8 @@ Join the <a href="https://futurestud.io/university">Future Studio University and
 - [Mocha — Global Setup and Teardown (before/after)](https://futurestud.io/tutorials/mocha-global-setup-and-teardown-before-after)
 
 
----
+#### Flow Control
+- [Node.js — Run Async Functions/Promises in Sequence](https://futurestud.io/tutorials/node-js-run-async-functions-promises-in-sequence)
 
 
 #### Classes
@@ -30,7 +40,7 @@ Join the <a href="https://futurestud.io/university">Future Studio University and
 
 
 #### Collections
-- [Run an Asynchronous Function in Array.map() with Node.js](https://futurestud.io/tutorials/node-js-how-to-run-an-asynchronous-function-in-array-map)
+- [Node.js — Run an Asynchronous Function in Array.map()](https://futurestud.io/tutorials/node-js-how-to-run-an-asynchronous-function-in-array-map)
 
 
 #### Filesystem
@@ -59,7 +69,3 @@ Join the <a href="https://futurestud.io/university">Future Studio University and
 #### Misc
 - [Increase the Memory Limit for Your Node.js Process](https://futurestud.io/tutorials/node-js-increase-the-memory-limit-for-your-process)
 - [Get Number of Seconds Since Epoch in JavaScript](https://futurestud.io/tutorials/get-number-of-seconds-since-epoch-in-javascript)
-
-
-## YouTube Playlist
-Even though there aren’t that many tutorials, find the [Node.js playlist on YouTube](https://www.youtube.com/watch?v=s6TNwLnhppk&list=PLpUMhvC6l7AMwyuEqLPvfEtKQbdD4BJ5o).
