@@ -1,5 +1,14 @@
 'use strict'
 
+/**
+ * Removes all falsey values from the given `array`.
+ * Falsey values are `null`, `undefined`, `''`,
+ * `false`, `0`, `NaN`.
+ *
+ * @param {Array} array
+ *
+ * @returns {Array}
+ */
 function compact (array) {
   array = Array.isArray(array) ? array : [ array ]
 
