@@ -1,7 +1,7 @@
 'use strict'
 
 function compact (array) {
-  array = Array.isArray(array) ? array : [ ...array ]
+  array = Array.isArray(array) ? array : [ array ]
 
   return array.filter(item => !!item)
 }
