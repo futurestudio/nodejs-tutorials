@@ -15,11 +15,11 @@ function compact (array) {
   return array.filter(item => !!item)
 }
 
-async function run () {
+function run () {
   const values = [ 0, null, undefined, 1, false, 2, '', 3, NaN ]
 
   console.log(
-    await compact(values)
+    compact(values)
   )
 }
 
