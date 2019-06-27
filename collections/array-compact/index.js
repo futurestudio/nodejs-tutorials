@@ -19,7 +19,7 @@ function run () {
   const values = [ 0, null, undefined, 1, false, 2, '', 3, NaN ]
 
   console.log(
-    compact(values)
+    compact(values) // output: [ 1, 2, 3 ]
   )
 }
 
