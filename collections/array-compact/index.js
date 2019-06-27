@@ -7,7 +7,7 @@ function compact (array) {
 }
 
 async function run () {
-  const values = [ 0, null, 1, false, 2, '', 3 ]
+  const values = [ 0, null, undefined, 1, false, 2, '', 3, NaN ]
 
   console.log(
     await compact(values)
