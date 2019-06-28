@@ -1,53 +1,35 @@
 'use strict'
 
-const Listr = require('listr')
 const Axios = require('axios')
 
-let result = null
-
-async function kickoff (tasks) {
-  try {
-    await tasks.run()
-
-    console.log(result)
-  } catch (error) {
-    console.error(error)
-  }
-
-  process.exit(0)
+async function map (array, callback) {
+  return Promise.all(array.map(callback))
 }
 
-if (process.argv) {
-  const tasks = [
-    {
-      title: 'Downloading repository information',
-      task: async () => {
-        const repos = [
-          {
-            url: 'https://api.github.com/repos/futurestudio/futureflix-starter-kit'
-          },
-          {
-            url: 'https://api.github.com/repos/futurestudio/android-tutorials-glide'
-          }
-        ]
+async function githubDetailsFor (repo) {
+  const response = await Axios({
+    method: 'GET',
+    url: repo.url,
+    headers: { Accept: 'application/vnd.github.v3+json' }
+  })
 
-        const promises = repos.map(async repo => {
-          const response = await Axios({
-            method: 'GET',
-            url: repo.url,
-            headers: { Accept: 'application/vnd.github.v3+json' }
-          })
+  return Object.assign(repo, {
+    name: response.data.full_name,
+    description: response.data.description
+  })
+}
 
-          return Object.assign(repo, {
-            name: response.data.full_name,
-            description: response.data.description
-          })
-        })
-
-        result = await Promise.all(promises)
-      }
-    }
+async function run () {
+  const repos = [
+    { url: 'https://api.github.com/repos/futurestudio/futureflix-starter-kit' },
+    { url: 'https://api.github.com/repos/futurestudio/android-tutorials-glide' }
   ]
 
-  kickoff(new Listr(tasks))
+  console.log(
+    await map(repos, async (repo) => {
+      return githubDetailsFor(repo)
+    })
+  )
 }
+
+run()
