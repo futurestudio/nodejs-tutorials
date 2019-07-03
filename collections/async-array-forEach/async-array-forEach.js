@@ -9,6 +9,8 @@
  * @param {Function} callback
  */
 async function forEach (array, callback) {
+  array = Array.isArray(array) ? array : [ array ]
+
   await Promise.all(array.map(callback))
 }
 
