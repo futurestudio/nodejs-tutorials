@@ -1,5 +1,13 @@
 'use strict'
 
+/**
+ * Asynchrounous version of Array#forEach(). It runs the given
+ * `callback` function on each `array` item. The callback
+ * receives the current array item as a parameter.
+ *
+ * @param {Array} array
+ * @param {Function} callback
+ */
 async function forEach (array, callback) {
   await Promise.all(array.map(callback))
 }
