@@ -1,7 +1,7 @@
 'use strict'
 
 async function forEach (array, callback) {
-  return Promise.all(array.map(callback))
+  await Promise.all(array.map(callback))
 }
 
 /**
