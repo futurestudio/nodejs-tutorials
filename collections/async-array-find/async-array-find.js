@@ -3,7 +3,7 @@
 /**
  * Asynchronous version of Array#find(). Returns the first
  * item in the `array` that satisfies the `callback`
- * testing function, `undefined` otherwise .
+ * testing function, `undefined` otherwise.
  *
  * @param {Array} array
  * @param {Function} callback
