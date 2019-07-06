@@ -1,5 +1,5 @@
 # Node.js tutorials
-This repository includes examples for the [Node.js tutorials published on Future Studio](https://futurestud.io/tutorials/tag/nodejs). Enjoy toying with all the invididual examples and feel free to apply the practical approaches in your apps.
+This repository includes examples for the [Node.js tutorials published on Future Studio](https://futurestud.io/tutorials/tag/nodejs). Enjoy toying with all the individual examples and feel free to apply the practical approaches in your apps.
 
 
 
