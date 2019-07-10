@@ -26,7 +26,7 @@ for (const item of cache.values()) {
  * uses destructuring to assign the properties.
  */
 for (const [ key, value ] of cache) {
-  console.log(`Cache item: ${key} with values ${JSON.stringify(value)}`)
+  console.log(`Cache item: "${key}" with values ${JSON.stringify(value)}`)
 }
 
 /**
