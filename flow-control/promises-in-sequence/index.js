@@ -30,11 +30,10 @@ async function forLoopInSequence (timeouts) {
 
 async function reduceInSequence (timeouts) {
   return timeouts.reduce(async (carry, timeout) => {
-    return [
-      ...(await carry),
-      await asyncProcessing(timeout)
-    ]
-  }, Promise.resolve([]))
+    return []
+      .concat(await carry)
+      .concat(await asyncProcessing(timeout))
+  }, [])
 }
 
 async function asyncProcessing (ms) {
