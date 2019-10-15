@@ -19,11 +19,12 @@ class DownloadWithProgressBar {
     const progressBar = this.initializeProgressBar({ totalLength: headers['content-length'] })
 
     return new Promise((resolve, reject) => {
-      data.pipe(this.toFile())
+      const file = this.toFile()
+      file.on('error', reject)
+      file.on('finish', resolve)
 
+      data.pipe(file)
       data.on('data', (chunk) => progressBar.tick(chunk.length))
-      data.on('end', resolve)
-      data.on('error', reject)
     })
   }
 
