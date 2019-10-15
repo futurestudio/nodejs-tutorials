@@ -12,13 +12,14 @@ class DownloadWithProgressBar {
   }
 
   async start () {
-    console.log('Starting download')
+    console.log('Connecting …')
+    const { data, headers } = await this.startDownload()
 
-    const { data, headers } = await this._downloadFile()
-    const progressBar = this._initializeProgressBar({ totalLength: headers['content-length'] })
+    console.log('Starting download')
+    const progressBar = this.initializeProgressBar({ totalLength: headers['content-length'] })
 
     return new Promise((resolve, reject) => {
-      data.pipe(this._destinationWriteStream())
+      data.pipe(this.toFile())
 
       data.on('data', (chunk) => progressBar.tick(chunk.length))
       data.on('end', resolve)
@@ -26,15 +27,15 @@ class DownloadWithProgressBar {
     })
   }
 
-  async _downloadFile () {
+  async startDownload () {
     return Axios({
-      url: this.source,
       method: 'GET',
+      url: this.source,
       responseType: 'stream'
     })
   }
 
-  _initializeProgressBar ({ totalLength }) {
+  initializeProgressBar ({ totalLength }) {
     return new ProgressBar('-> downloading [:bar] :percent :etas', {
       width: 40,
       complete: '=',
@@ -44,7 +45,7 @@ class DownloadWithProgressBar {
     })
   }
 
-  _destinationWriteStream () {
+  toFile () {
     return Fs.createWriteStream(this.destination)
   }
 }
